@@ -1,0 +1,98 @@
+<!doctype html>
+<!--
+  Standalone brand guidelines page, filled by `scripts/render.mjs guidelines`.
+  It links the kit's files relatively, so it works opened from disk or hosted next to them.
+  Retune it to the brand like every other template: it must look like the brand it documents.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{name}} brand guidelines</title>
+<meta name="description" content="{{name}}: logo, colour, typography, voice and social assets.">
+<style>
+{{font_faces}}
+:root { {{vars}}; }
+* { box-sizing: border-box; margin: 0; }
+html { background: var(--background); color: var(--text); font: var(--body-weight) clamp(1rem, 0.95rem + 0.25vw, 1.125rem)/1.55 var(--font-body); -webkit-font-smoothing: antialiased; }
+body { max-width: 76rem; margin: 0 auto; padding: clamp(1rem, 4vw, 4rem); }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); line-height: 1; text-wrap: balance; }
+h1 { font-size: clamp(3rem, 12vw, 9rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+header { padding: clamp(3rem, 12vh, 8rem) 0; border-bottom: 1px solid var(--line); }
+header p { max-width: 44ch; margin-top: 1.5rem; font-size: 1.25em; text-wrap: pretty; }
+.label { font: var(--mono-weight) 0.72rem/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 1rem; }
+section { padding: clamp(2.5rem, 8vh, 5rem) 0; border-bottom: 1px solid var(--line); }
+ul { list-style: none; padding: 0; }
+code { font: var(--mono-weight) 0.8em var(--font-mono); color: var(--muted); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1rem; }
+.swatches li { display: grid; gap: 0.3rem; padding: 0.75rem; background: var(--surface); border: 1px solid var(--line); }
+.chip { display: block; height: 5rem; border: 1px solid var(--line); }
+.type li { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.specimen { font-size: clamp(1.75rem, 5vw, 4rem); line-height: 1.05; text-wrap: balance; }
+.meta { color: var(--muted); font-size: 0.85em; margin-top: 0.75rem; }
+.files { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1rem; }
+.files li { display: grid; gap: 0.5rem; font-size: 0.85em; }
+.plate { aspect-ratio: 4 / 3; display: grid; place-items: center; background: var(--surface); border: 1px solid var(--line); }
+.plate.dark { background: #111; }
+.plate.light { background: #f4f4f1; }
+.plate img { max-width: 50%; max-height: 50%; }
+.social { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1rem; align-items: start; }
+.social li { display: grid; gap: 0.5rem; font-size: 0.85em; }
+.social img { width: 100%; height: auto; border: 1px solid var(--line); }
+.rules { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.rules li { padding: 0.6rem 0; border-top: 1px solid var(--line); }
+footer { padding: 2rem 0; color: var(--muted); font-size: 0.85em; }
+</style>
+</head>
+<body>
+<header>
+  <span class="label">Brand guidelines</span>
+  <h1>{{name}}</h1>
+  <p>{{idea}}</p>
+</header>
+<main>
+  <section aria-labelledby="logo">
+    <h2 id="logo">Logo</h2>
+    <ul class="files">
+{{logo_files}}
+    </ul>
+    <ul class="rules" style="margin-top:2rem"><li style="border:0;padding:0"><ul>
+{{logo_rules}}
+    </ul></li></ul>
+  </section>
+  <section aria-labelledby="colour">
+    <h2 id="colour">Colour</h2>
+    <ul class="swatches">
+{{swatches}}
+    </ul>
+  </section>
+  <section aria-labelledby="type">
+    <h2 id="type">Typography</h2>
+    <ul class="type">
+{{type}}
+    </ul>
+  </section>
+  <section aria-labelledby="voice">
+    <h2 id="voice">Voice</h2>
+    <div class="rules">
+      <div><span class="label">Always</span><ul>
+{{voice}}
+      </ul></div>
+      <div><span class="label">Never</span><ul>
+{{never}}
+      </ul></div>
+    </div>
+  </section>
+  <section aria-labelledby="social">
+    <h2 id="social">Social assets</h2>
+    <ul class="social">
+{{social_files}}
+    </ul>
+  </section>
+</main>
+<footer>{{tagline}}</footer>
+</body>
+</html>

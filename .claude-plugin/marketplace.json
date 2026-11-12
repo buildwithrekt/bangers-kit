@@ -1,0 +1,16 @@
+{
+  "name": "bangers-kit",
+  "owner": {
+    "name": "Bangers Kit"
+  },
+  "plugins": [
+    {
+      "name": "bangers",
+      "source": "./",
+      "description": "Award-level web design workflow: art direction, motion system, design watch, brand kit, press kit, redesign threads and films."
+    }
+  ],
+  "metadata": {
+    "description": "Award-level web design workflow for Claude Code."
+  }
+}

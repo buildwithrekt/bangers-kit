@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>NN slide name</title>
+<link rel="stylesheet" href="../system/base.css">
+<style>
+/* Page-specific styles only. Use the tokens (var(--accent), var(--f-display)…), absolute positioning on the
+   fixed frame, and px units. Nothing may overflow the frame. No text under 10px. */
+.head{position:absolute;left:60px;top:92px;right:60px;display:flex;justify-content:space-between;align-items:flex-end}
+.head h1{font-family:var(--f-display);font-weight:700;font-size:72px;letter-spacing:-.04em;line-height:.92}
+.head h1 em{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--ink-2)}
+.meta{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:right;line-height:1.7}
+
+/* audit layout: annotated "before" screenshot in the centre, notes in the margins */
+.frame{position:absolute;left:320px;top:230px;width:860px;height:516px}
+.clip{position:absolute;inset:0;border-radius:12px;overflow:hidden;border:1px solid var(--line-3);box-shadow:0 30px 90px -20px rgba(0,0,0,.8)}
+.clip img{width:100%;height:100%;display:block;object-fit:cover;object-position:top left;filter:saturate(.85)}
+.note{position:absolute;width:236px;z-index:9}
+.note.r{left:1216px} .note.l{left:40px;text-align:right}
+.note .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--warn)}
+.note .t{font-size:15.5px;font-weight:600;letter-spacing:-.015em;line-height:1.28;margin-top:6px}
+.note .d{font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:5px}
+.verdict{position:absolute;left:320px;top:776px;width:860px;font-size:17px;line-height:1.4;color:var(--ink-2)}
+.verdict b{color:var(--ink);font-weight:600}
+</style></head>
+<body><div class="slide grain">
+
+  <!-- REQUIRED: step label = slide number + chapter (the cover may omit it) -->
+  <div class="chrome-step"><b>03</b> / The audit</div>
+
+  <div class="head">
+    <h1>The home, <em>today.</em></h1>
+    <div class="meta">Live site · captured YYYY-MM-DD<br>Desktop 1500 × 900</div>
+  </div>
+
+  <!-- "before" screenshots come from before/*.png; marker positions are % of the frame -->
+  <div class="frame">
+    <div class="clip"><img src="../before/home.png" alt=""></div>
+    <div class="hl" style="left:4%;top:12%;width:29%;height:70%"></div>
+    <div class="mk" style="left:4%;top:12%">1</div>
+    <div class="mk" style="left:70%;top:20%">2</div>
+  </div>
+
+  <!-- every note states a fact visible in the screenshot or recorded in before/observed.json -->
+  <div class="note l" style="top:250px">
+    <div class="k">01 · Hierarchy</div>
+    <div class="t">Three panes, equal weight</div>
+    <div class="d">State what is observed, with the real figure. Critique the interface, never the team.</div>
+  </div>
+  <div class="note r" style="top:300px">
+    <div class="k">02 · Navigation</div>
+    <div class="t">12 icons, no labels</div>
+    <div class="d">One observation per note. Short. Numbers in <span class="mono">mono</span>.</div>
+  </div>
+
+  <div class="verdict"><b>Everything is there. Nothing is ranked.</b> One-sentence verdict that the tweet for this slide will echo.</div>
+
+  <!-- REQUIRED on every slide -->
+  <div class="unofficial">Unofficial redesign concept</div>
+</div></body></html>

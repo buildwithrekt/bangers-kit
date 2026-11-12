@@ -1,0 +1,18 @@
+{
+  "_source": "REPLACE: where every figure below comes from (public analytics site, the target's own stats page, its public API) and the capture date YYYY-MM-DD",
+  "allTime": {
+    "volumeTotal": "REPLACE e.g. $12.3B",
+    "_volumeTotal": "keys starting with _ explain how the figure next to them is defined or computed",
+    "users": "REPLACE",
+    "since": "REPLACE e.g. March 2024"
+  },
+  "last24h": {},
+  "last30d": {},
+  "series": [["Jan", 0], ["Feb", 0]],
+  "observedOnTheLiveSite_YYYY-MM-DD": {
+    "firstVisit": "REPLACE: what a new visitor meets before the product (modals, banners), counted",
+    "home": "REPLACE: facts read off before/home.png and before/observed.json",
+    "productPage": "REPLACE",
+    "mobileHome": "REPLACE"
+  }
+}

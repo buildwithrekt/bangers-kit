@@ -1,0 +1,55 @@
+{
+  "name": "Northlight",
+  "slug": "northlight",
+  "idea": "A signal and its echo. The mark, the colour hierarchy and the copy all restate that one idea.",
+  "tagline": "Find the quiet hours in your week.",
+  "headline": "Find the quiet hours\nin your week.",
+  "highlight": "quiet hours",
+  "eyebrow": "Calendar · Private by default",
+  "wordmark": { "text": "Northlight", "accentFrom": 5 },
+  "axes": { "restrainedExpressive": 30, "geometricOrganic": 20, "familiarExperimental": 45 },
+  "palette": {
+    "background": "#0B1014",
+    "surface": "#111920",
+    "raised": "#18232C",
+    "line": "#243340",
+    "accent": "#FFB454",
+    "accentDim": "#C9873A",
+    "accentText": "#0B1014",
+    "text": "#EEF2F4",
+    "muted": "#8FA1AD"
+  },
+  "paletteRoles": {
+    "background": "Page ground",
+    "surface": "Raised panels",
+    "raised": "Hover and nested surfaces",
+    "line": "Borders and dividers",
+    "accent": "Primary action and live state, nothing decorative",
+    "accentDim": "Secondary accent",
+    "accentText": "Text on the accent",
+    "text": "Primary text",
+    "muted": "Secondary text and metadata"
+  },
+  "fonts": {
+    "display": { "family": "Display Face Name", "file": "fonts/Display-Variable.woff2", "weight": 600, "tracking": "-0.035em", "licence": "Licence name", "source": "https://foundry.example/display-face" },
+    "body": { "family": "Body Face Name", "file": "fonts/Body-Variable.woff2", "weight": 400, "licence": "Licence name", "source": "https://foundry.example/body-face" },
+    "mono": { "family": "Mono Face Name", "file": "fonts/Mono-Regular.woff2", "weight": 400, "weightRange": "400", "licence": "Licence name", "source": "https://foundry.example/mono-face" }
+  },
+  "logo": {
+    "mark": "logo/src/mark.svg",
+    "avatarScale": 0.6,
+    "appIconScale": 0.56,
+    "iconScale": 0.66,
+    "rules": [
+      "Use the tight files. Size the mark by its longer side.",
+      "Clear space: at least half the mark's width on every side.",
+      "Minimum size: 16px on screen.",
+      "Never stretch, rotate, outline, recolour outside the palette, or add effects."
+    ]
+  },
+  "voice": {
+    "principles": ["Plain and exact.", "State the mechanism and the limit in the same breath.", "Sentence case everywhere."],
+    "never": ["Hype words.", "A number that is not real.", "Exclamation marks."]
+  },
+  "art": {}
+}

@@ -1,0 +1,66 @@
+{
+  "raw": ".film/demo",
+  "public": "public/film/demo",
+  "manifest": "src/film-manifest.json",
+  "seconds": 5,
+  "aspect": "16:9",
+  "sourceSize": [1920, 1080],
+  "encode": { "xl": [2880, 92], "lg": [1920, 92], "sm": [1080, 90] },
+
+  "models": {
+    "image": {
+      "t2i": { "endpoint": "fal-ai/nano-banana-pro", "input": { "resolution": "2K" } },
+      "pro": { "endpoint": "fal-ai/nano-banana-pro/edit", "refs": "image_urls", "input": { "resolution": "2K" } },
+      "std": { "endpoint": "fal-ai/nano-banana/edit", "refs": "image_urls" }
+    },
+    "video": {
+      "default": {
+        "endpoint": "fal-ai/kling-video/v2.6/pro/image-to-video",
+        "start": "start_image_url",
+        "end": "end_image_url",
+        "input": {
+          "generate_audio": false,
+          "negative_prompt": "blur, distortion, warping, morphing subject, flicker, text, logo, watermark, low quality"
+        }
+      }
+    },
+    "upscale": {
+      "endpoint": "fal-ai/topaz/upscale/video",
+      "input": { "upscale_factor": 2, "model": "Proteus", "H264_output": true }
+    }
+  },
+
+  "vars": {
+    "SUBJECT": "a fictional, unbranded <product>: no logos, no badges, no text anywhere. <shape, materials, colour, the two or three details that make it recognisable>",
+    "SET": "<the place and its light>, cinematic campaign photography, ultra realistic, high detail",
+    "SAME": "Same exact subject (same design, same colour, same details), same set, same lighting and colour grade.",
+    "STILL_CAMERA": "The subject stays perfectly still; only the camera moves, smooth and steady, no cuts, no zoom jumps. Consistent lighting, photorealistic."
+  },
+
+  "sets": {
+    "hero": {
+      "keys": [
+        { "id": "b-front", "model": "t2i", "prompt": "Studio photograph of {SUBJECT}. Front three-quarter view from the left, 35mm lens, subject centred with generous space around it. {SET}." },
+        { "id": "a-dark", "from": "b-front", "model": "pro", "prompt": "{SAME} Same camera and framing. The set is almost completely dark: only a thin rim light traces the outline of the subject." },
+        { "id": "c-side", "from": "b-front", "model": "std", "prompt": "{SAME} Change only the camera: a pure side profile view, the whole subject centred in frame with space around it." }
+      ],
+      "clips": [
+        { "id": "1-reveal", "from": "a-dark", "to": "b-front", "model": "default", "prompt": "The lights slowly rise until the subject is fully lit. Camera almost static, a very slow push-in. {STILL_CAMERA}" },
+        { "id": "2-orbit", "from": "b-front", "to": "c-side", "model": "default", "prompt": "Slow cinematic camera orbit around the subject, from front three-quarter to pure side profile. {STILL_CAMERA}" }
+      ]
+    },
+    "montage": {
+      "keys": [
+        { "id": "m1", "from": ["b-front", "c-side"], "model": "std", "prompt": "Same exact subject as in the reference images. <a new place, light and camera angle>, 16:9." }
+      ],
+      "clips": [
+        { "id": "3-m1", "from": "m1", "model": "default", "prompt": "<what moves and how the camera follows>. One continuous shot, no cuts, photorealistic." }
+      ]
+    },
+    "mirror-example": {
+      "keys": [{ "id": "y-front-right", "mirror": "b-front" }],
+      "clips": [],
+      "derived": [{ "id": "2r-orbit", "derive": { "clip": "2-orbit", "flop": true, "reverse": true } }]
+    }
+  }
+}

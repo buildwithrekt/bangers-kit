@@ -1,0 +1,33 @@
+{
+  "title": "Working title",
+  "slug": "working-title",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "vertical": { "width": 1080, "height": 1920 },
+  "audio": "audio/score.wav",
+  "fonts": [],
+  "palette": {
+    "bg": "#0d1030",
+    "bg2": "#171b4a",
+    "fg": "#fff4e0",
+    "muted": "#8d90b8",
+    "accent": "#ff4d6d",
+    "pop1": "#ffd23f",
+    "pop2": "#5dffb0",
+    "pop3": "#a24dff",
+    "pop4": "#2fb8ff"
+  },
+  "anchor": { "color": "#ff4d6d", "size": 12, "tolerance": 40 },
+  "scenes": [
+    {
+      "id": "00-template",
+      "duration": 6,
+      "cues": [
+        { "t": 0.5, "name": "ring-in", "note": "the ring lights up" },
+        { "t": 1.5, "name": "leap", "note": "the anchor leaves the centre" },
+        { "t": 3.6, "name": "return", "note": "the anchor comes back" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+/* Pinned scroll film: a tall track, a sticky full-screen stage, the canvas, then text layers. */
+
+.track {
+  position: relative;
+  height: calc(var(--len, 5) * 100svh);
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--film-bg, #18181a); /* match the film's own background so its edges vanish */
+}
+
+.poster,
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.poster {
+  object-fit: cover;
+}
+/* Once the first frame is decoded the canvas owns the picture. */
+.track[data-ready] .poster {
+  visibility: hidden;
+}
+
+/* Hard-cut flash between montage shots (animated from ScrollFilm). */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: var(--film-flash, #fff6e8);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Copy over the film. Each child can read --p (0→1) to time itself on the scroll. */
+.layers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.layers a,
+.layers button {
+  pointer-events: auto;
+}
+
+/* Portrait: never ask to rotate the phone. The film sits as a wide band across the middle
+   (drawn at 1.4× the screen width, see fitRect), its top and bottom edges dissolve into the stage
+   colour, and the copy lives in the bands above and below. */
+@media (orientation: portrait) {
+  .poster {
+    inset: 50% auto auto 50%;
+    width: 140vw;
+    height: auto;
+    translate: -50% -50%;
+  }
+  .poster,
+  .canvas {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent calc(50% - 39.4vw),
+      #000 calc(50% - 24vw),
+      #000 calc(50% + 24vw),
+      transparent calc(50% + 39.4vw)
+    );
+  }
+}
+
+/* Reduced motion: no pin, no scrub. The poster stays as a still and the copy flows below it. */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    height: auto;
+  }
+  .stage {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+  }
+  .canvas {
+    display: none;
+  }
+  .track[data-ready] .poster {
+    visibility: visible;
+  }
+  .layers {
+    position: relative;
+    inset: auto;
+  }
+}

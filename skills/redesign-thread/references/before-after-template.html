@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>NN before after</title>
+<link rel="stylesheet" href="../system/base.css">
+<style>
+/* Before/after: the live screenshot on the left, the rendered redesign slide on the right.
+   The "after" image is your own out/NN-page.png, so render the product slide first. */
+.hd{position:absolute;left:60px;right:60px;top:92px;display:flex;align-items:flex-end;justify-content:space-between}
+.hd h2{font-family:var(--f-display);font-weight:800;letter-spacing:-.04em;font-size:80px;line-height:.9}
+.hd h2 .s{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--paper);letter-spacing:-.02em}
+.hd .r{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:right;line-height:1.8}
+.cmp{position:absolute;left:60px;top:216px;width:1380px;height:414px;border-radius:20px;overflow:hidden;display:flex;border:1px solid var(--line-2);box-shadow:0 40px 120px -30px rgba(0,0,0,.9)}
+.side{position:relative;width:690px;height:414px;overflow:hidden}
+.side img{width:690px;height:414px;object-fit:cover;object-position:top left;display:block}
+.side.b img{filter:saturate(.8) brightness(.92)}
+.side.a::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px var(--accent-glow);pointer-events:none}
+.lab{position:absolute;bottom:16px;z-index:5;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:99px}
+.lab.b{left:16px;background:rgba(10,11,10,.85);color:var(--paper);border:1px solid var(--line-2)}
+.lab.a{right:16px;background:var(--accent);color:var(--accent-ink);font-weight:700}
+.div{position:absolute;left:749px;top:196px;width:2px;height:454px;background:var(--accent);box-shadow:0 0 18px var(--accent-glow);z-index:8}
+.handle{position:absolute;left:722px;top:396px;width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--accent-ink);z-index:9;display:grid;place-items:center;font-family:var(--f-mono);font-size:18px;box-shadow:0 0 0 6px rgba(7,9,10,.65),0 0 40px var(--accent-glow)}
+.wins{position:absolute;left:60px;top:676px;width:1380px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.col h4{font-family:var(--f-mono);font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;display:flex;gap:10px;align-items:center}
+.col h4 span{flex:1;height:1px;background:var(--line-2)}
+.col.a h4{color:var(--accent)}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.col li{display:grid;grid-template-columns:26px 1fr;font-size:16.5px;line-height:1.35;color:var(--ink-2);letter-spacing:-.01em}
+.col li b{color:var(--ink);font-weight:600}
+.col li .m{font-family:var(--f-mono);font-size:13px;line-height:22px}
+.col.b li .m{color:var(--down)} .col.a li .m{color:var(--accent)}
+</style></head>
+<body><div class="slide grain">
+  <div class="chrome-step"><b>15</b> / Before → After</div>
+  <div class="hd">
+    <h2>The home, <span class="s">before</span> &amp; after.</h2>
+    <div class="r">Page name<br>Same content · one job</div>
+  </div>
+
+  <div class="cmp">
+    <div class="side b"><img src="../before/home.png" alt=""><div class="lab b">Before · live site</div></div>
+    <div class="side a"><img src="../out/10-home.png" alt=""><div class="lab a">After</div></div>
+  </div>
+  <div class="div"></div>
+  <div class="handle">↔</div>
+
+  <!-- three facts per side, mirrored: each "after" line answers the "before" line next to it -->
+  <div class="wins">
+    <div class="col b"><h4>Before<span></span></h4><ul>
+      <li><span class="m">−</span><span><b>Observed problem,</b> with the real figure.</span></li>
+      <li><span class="m">−</span><span><b>Observed problem,</b> with the real figure.</span></li>
+      <li><span class="m">−</span><span><b>Observed problem,</b> with the real figure.</span></li>
+    </ul></div>
+    <div class="col a"><h4>After<span></span></h4><ul>
+      <li><span class="m">+</span><span><b>The change,</b> and what it gives the user.</span></li>
+      <li><span class="m">+</span><span><b>The change,</b> and what it gives the user.</span></li>
+      <li><span class="m">+</span><span><b>The change,</b> and what it gives the user.</span></li>
+    </ul></div>
+  </div>
+
+  <div class="unofficial">Unofficial redesign concept</div>
+</div></body></html>

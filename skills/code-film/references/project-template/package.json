@@ -1,0 +1,19 @@
+{
+  "name": "code-film",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sheet": "node tools/sheet.mjs",
+    "still": "node tools/still.mjs",
+    "check": "node tools/check.mjs",
+    "render": "node tools/render.mjs",
+    "score": "node tools/score.mjs",
+    "film": "node tools/assemble.mjs",
+    "preview": "node tools/serve.mjs"
+  },
+  "dependencies": {
+    "gsap": "latest",
+    "playwright": "latest",
+    "three": "latest"
+  }
+}

@@ -1,0 +1,53 @@
+/* Shared stage and type for every scene. Sizes come from film.json through --w / --h (set by the runtime),
+   palette tokens through --<name> (one per entry of film.json "palette"). */
+
+/* Self-host the film's fonts in shared/fonts and declare them here, then list them in film.json "fonts"
+   (CSS font shorthands, e.g. "400 46px Narrator") so every scene waits for them before its first frame.
+@font-face { font-family: "Narrator"; src: url("/shared/fonts/narrator.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+*/
+
+:root {
+  --serif: "Narrator", Georgia, serif;
+  --sans: "Graphic", system-ui, sans-serif;
+  --mono: "Label", ui-monospace, monospace;
+  --margin: 120px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; background: #000; overflow: hidden; }
+body { color: var(--fg); font-family: var(--sans); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+
+#stage { position: absolute; left: 0; top: 0; width: var(--w); height: var(--h); background: var(--bg); overflow: hidden; transform-origin: 0 0; }
+#stage canvas { position: absolute; left: 0; top: 0; width: var(--w); height: var(--h); display: block; }
+
+/* the anchor: the element every hard cut matches on (film.json "anchor"), centred by the runtime */
+#anchor { position: absolute; z-index: 50; will-change: transform; }
+
+/* narration: one voice for the whole film */
+.narration { position: absolute; z-index: 40; font-family: var(--serif); font-weight: 400; font-size: 46px; line-height: 1.22; letter-spacing: -0.012em; color: var(--fg); max-width: 1100px; }
+.narration.bl { left: var(--margin); bottom: 112px; }
+.narration.br { right: var(--margin); bottom: 112px; text-align: right; }
+.narration.tl { left: var(--margin); top: 150px; }
+.narration.c  { left: 0; right: 0; bottom: 150px; max-width: none; text-align: center; }
+.narration em { font-style: italic; }
+.narration .wl { display: block; }
+.narration .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0.1em 0.07em 0.2em; margin: -0.1em -0.07em -0.2em; }
+.narration .w > span { display: inline-block; will-change: transform; }
+
+/* chapter mark: small mono label, top-left */
+.chapter { position: absolute; z-index: 40; left: var(--margin); top: 72px; font-family: var(--mono); font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: flex; gap: 18px; }
+.chapter b { font-weight: 400; color: var(--fg); }
+
+/* preview transport (never present in capture mode) */
+#transport { position: fixed; left: 0; right: 0; bottom: 0; height: 40px; display: flex; align-items: center; gap: 12px; padding: 0 14px; background: #000; color: #aaa; font: 12px/1 var(--mono); z-index: 999; }
+#transport input { flex: 1; }
+#transport button { background: none; border: 1px solid #555; color: #ddd; font: inherit; padding: 5px 10px; cursor: pointer; }
+
+/* vertical edition: text stays inside the safe area social apps leave free (see SAFE in the runtime) */
+.v { --margin: 72px; }
+.v .narration { font-size: 54px; line-height: 1.2; max-width: calc(var(--w) - 144px); }
+.v .narration.bl { bottom: 380px; }
+.v .narration.br { bottom: 380px; }
+.v .narration.tl { top: 330px; }
+.v .narration.c { bottom: 400px; left: 72px; right: 72px; }
+.v .chapter { top: 262px; font-size: 20px; }

@@ -1,0 +1,27 @@
+/* STARTER TOKENS — replace every value for each project.
+   The palette and type must come from the art direction in BRIEF.md (derive them from the target's own brand:
+   its logo, its strongest colour, its product metaphor). Shipping these defaults untouched is a failure. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=block');
+:root{
+  /* surfaces: never pure black; tint the neutrals slightly toward the brand hue */
+  --bg:#0A0B0B; --bg-2:#0F1010; --surface:#151616; --surface-2:#1B1D1D; --surface-3:#242727;
+  --line:rgba(235,240,238,.07); --line-2:rgba(235,240,238,.12); --line-3:rgba(235,240,238,.22);
+  --ink:#F1F3F0; --ink-2:rgba(241,243,240,.66); --ink-3:rgba(241,243,240,.42); --ink-4:rgba(241,243,240,.22);
+  /* brand: ONE accent with one job (brand, primary action, progress) */
+  --accent:#5DF09A; --accent-2:#2FD47A; --accent-deep:#0E3B22; --accent-ink:#06210F;
+  --accent-dim:rgba(93,240,154,.13); --accent-glow:rgba(93,240,154,.32);
+  /* paper: light editorial slides (type, colour, principles) for rhythm in the series */
+  --paper:#F2EBDD; --paper-2:#E6DCC8; --paper-ink:#14150F;
+  /* signals: each colour has exactly one meaning; never use them as decoration */
+  --warn:#FFB547; --warn-dim:rgba(255,181,71,.14);   /* attention / risk; also the audit marker colour */
+  --up:#5DF09A; --down:#FF5D5D; --up-dim:rgba(93,240,154,.13); --down-dim:rgba(255,93,93,.13);
+  /* type: four voices, one job each */
+  --f-display:'Bricolage Grotesque', sans-serif;   /* headlines + big numbers, tight tracking */
+  --f-ui:'Geist', system-ui, sans-serif;           /* interface + body */
+  --f-mono:'Geist Mono', ui-monospace, monospace;  /* data, labels, tabular numbers */
+  --f-serif:'Newsreader', Georgia, serif;          /* italic editorial accents on masterclass slides only, never in the product UI */
+  --r-s:8px; --r-m:14px; --r-l:20px; --r-xl:28px; --r-pill:999px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  /* frame: must match the render preset (x = 1500x900, linkedin = 1080x1350, square = 1080x1080) */
+  --w:1500px; --h:900px;
+}

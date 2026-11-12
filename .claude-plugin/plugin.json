@@ -1,0 +1,18 @@
+{
+  "name": "bangers",
+  "version": "0.1.0",
+  "description": "Award-level web design workflow: art direction, motion system, design watch, brand kit, press kit, redesign threads and films.",
+  "author": {
+    "name": "Bangers Kit"
+  },
+  "keywords": [
+    "web-design",
+    "awwwards",
+    "motion",
+    "gsap",
+    "webgl",
+    "brand-kit",
+    "press-kit"
+  ],
+  "license": "LicenseRef-Proprietary"
+}

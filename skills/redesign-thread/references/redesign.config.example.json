@@ -1,0 +1,31 @@
+{
+  "target": "Example",
+  "baseUrl": "https://example.com",
+  "preset": "x",
+  "pages": [
+    ["home", "/"],
+    ["product", "/product/some-real-item"],
+    ["create", "/create"],
+    ["profile", "/profile/some-real-profile"]
+  ],
+  "mobilePages": [
+    ["home", "/"],
+    ["product", "/product/some-real-item"]
+  ],
+  "dismiss": ["Accept all", "Continue"],
+  "waitMs": 5000,
+  "data": {
+    "sources": [
+      {
+        "key": "top",
+        "url": "https://example.com/api/items?sort=volume",
+        "path": "items",
+        "fields": ["id", "name", "symbol", "marketCap", "volume", "creator.name"],
+        "limit": 20,
+        "idField": "id",
+        "imageField": "image"
+      }
+    ],
+    "exclude": []
+  }
+}
