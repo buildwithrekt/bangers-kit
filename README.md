@@ -2,6 +2,8 @@
 
 A Claude Code plugin that packages a complete award-level web design workflow: art direction before code, a motion system, a living design watch, and the production pipelines around a launch (brand kit, press kit, redesign threads, films). One command starts a site; the kit keeps the agent on the method.
 
+New here? Read [TUTORIAL.md](TUTORIAL.md) first.
+
 ## Install
 
 You need Claude Code and read access to this repository (your git credentials must work without a prompt: `gh auth login` then `gh auth setup-git`).
