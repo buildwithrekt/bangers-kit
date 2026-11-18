@@ -1,10 +1,10 @@
 {
-  "name": "bangers-kit",
-  "version": "0.2.0",
-  "description": "Installer for the Bangers kit: an award-level web design workflow for Claude Code.",
+  "name": "unslop-kit",
+  "version": "0.3.0",
+  "description": "Installer for unslop: an award-level web design workflow for Claude Code. Art direction before code, a motion system, a living design watch.",
   "type": "module",
   "bin": {
-    "bangers-kit": "cli/index.mjs"
+    "unslop-kit": "cli/index.mjs"
   },
   "files": [
     "cli/",
@@ -32,11 +32,13 @@
   "bugs": "https://github.com/buildwithrekt/unslop/issues",
   "keywords": [
     "claude-code",
+    "claude-code-plugin",
     "agent-skills",
     "web-design",
     "awwwards",
     "motion",
     "gsap",
-    "webgl"
+    "webgl",
+    "ai-slop"
   ]
 }

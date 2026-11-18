@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// npx bangers-kit: interactive installer for Claude Code users who do not use the plugin.
+// npx unslop-kit: interactive installer for Claude Code users who do not use the plugin.
 import { parseArgs } from "node:util";
 import * as p from "@clack/prompts";
 import pc from "picocolors";
 import { SKILLS, installCommands, installRules, installSkills, targets, version } from "./lib/install.mjs";
 
-const HELP = `Usage: npx bangers-kit [options]
+const HELP = `Usage: npx unslop-kit [options]
 
 Without options, the installer asks what to install.
 
@@ -14,7 +14,7 @@ Without options, the installer asks what to install.
   -p, --project        Install into ./.claude and ./CLAUDE.md
   --skills <list>      Comma-separated skills, or "all" (default with --yes)
   --no-rules           Skip the always-on rules and the design watch
-  --no-commands        Skip /bangers-awwwards and /bangers-scout
+  --no-commands        Skip /unslop-awwwards and /unslop-scout
   -v, --version        Print the version
   -h, --help           Print this help
 
@@ -81,7 +81,7 @@ if (flagged) {
     commands: !args["no-commands"],
   };
 } else {
-  p.intro(`${pc.bold("Bangers kit")} ${pc.dim(`v${version()}`)}`);
+  p.intro(`${pc.bold("unslop")} ${pc.dim(`v${version()}`)}`);
   plan = {
     skills: ask(
       await p.multiselect({
@@ -107,7 +107,7 @@ if (flagged) {
       }),
     ),
     commands: ask(
-      await p.confirm({ message: "Install the /bangers-awwwards and /bangers-scout commands?", initialValue: true }),
+      await p.confirm({ message: "Install the /unslop-awwwards and /unslop-scout commands?", initialValue: true }),
     ),
   };
 }
@@ -122,9 +122,9 @@ if (plan.rules) installRules(t, log);
 
 const next = [
   "Start a new Claude Code session so everything loads.",
-  plan.commands && "/bangers-awwwards <brief> builds a site; /bangers-scout refreshes the design watch.",
+  plan.commands && "/unslop-awwwards <brief> builds a site; /unslop-scout refreshes the design watch.",
   "The watch and the render scripts need Playwright: npx playwright install chromium",
-  "Run npx bangers-kit@latest again to update. Your design watch is never overwritten.",
+  "Run npx unslop-kit@latest again to update. Your design watch is never overwritten.",
 ].filter(Boolean);
 
 if (flagged) {

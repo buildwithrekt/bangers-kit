@@ -2,8 +2,8 @@
 Design award-worthy websites (Awwwards, FWA, CSS Design Awards): strong art direction, polished motion, flawless performance, real accessibility. Never a "template" or generic result.
 
 # Creative references
-- `~/.claude/bangers/design-references.md` holds the design watch (Awwwards SOTD, Dribbble). It is imported below and loaded in every session: use it for any design or website work.
-- If the watch date at the top of that file is more than 30 days old, offer to refresh it (`/bangers:scout`) and enrich the file without overwriting it.
+- `~/.claude/unslop/design-references.md` holds the design watch (Awwwards SOTD, Dribbble). It is imported below and loaded in every session: use it for any design or website work.
+- If the watch date at the top of that file is more than 30 days old, offer to refresh it (`/unslop:scout`) and enrich the file without overwriting it.
 - Inspiration, never copying: no code, asset, text or identity taken from an existing site. Extract principles and reinterpret them.
 
 # Before coding a site
@@ -67,4 +67,4 @@ Load the matching skill before starting that kind of work:
 - Reply in the user's language; code, variable names and comments in English
 
 # Design watch (automatic import)
-@~/.claude/bangers/design-references.md
+@~/.claude/unslop/design-references.md

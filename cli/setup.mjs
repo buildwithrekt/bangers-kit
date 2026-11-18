@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Entry point for the plugin's /bangers:setup. No npm dependencies, so it runs straight from the plugin folder.
+// Entry point for the plugin's /unslop:setup. No npm dependencies, so it runs straight from the plugin folder.
 import { installRules, targets } from "./lib/install.mjs";
 
 const log = (status, what) => console.log(`${status.padEnd(8)} ${what}`);

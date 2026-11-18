@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-labelledby="t">
-  <title id="t">Bangers kit: an award-level web design workflow for Claude Code</title>
+  <title id="t">unslop: an award-level web design workflow for Claude Code</title>
   <rect width="1280" height="400" fill="#F2EDE3"/>
   <line x1="100" y1="0" x2="100" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="200" y1="0" x2="200" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="300" y1="0" x2="300" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="400" y1="0" x2="400" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="500" y1="0" x2="500" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="600" y1="0" x2="600" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="700" y1="0" x2="700" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="800" y1="0" x2="800" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="900" y1="0" x2="900" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="1000" y1="0" x2="1000" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="1100" y1="0" x2="1100" y2="400" stroke="#E2DACB" stroke-width="1"/><line x1="1200" y1="0" x2="1200" y2="400" stroke="#E2DACB" stroke-width="1"/>
   <line x1="0" y1="64" x2="1280" y2="64" stroke="#E2DACB"/>
   <line x1="0" y1="336" x2="1280" y2="336" stroke="#E2DACB"/>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#6B6358" letter-spacing="1.5">
-    <text x="48" y="40">BANGERS KIT</text>
+    <text x="48" y="40">UNSLOP</text>
     <text x="1232" y="40" text-anchor="end">FOR CLAUDE CODE</text>
     <text x="48" y="372">BRIEF → DIRECTION → STRUCTURE → BUILD → AUDIT</text>
-    <text x="1232" y="372" text-anchor="end">$ npx bangers-kit</text>
+    <text x="1232" y="372" text-anchor="end">$ npx unslop-kit</text>
   </g>
-  <text x="40" y="282" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="800" font-size="236" letter-spacing="-14" fill="#16130F">bangers</text>
-  <path d="M884 296 C 960 276, 1060 272, 1146 286 S 1220 300, 1236 290" fill="none" stroke="#F2471C" stroke-width="9" stroke-linecap="round"/>
+  <text x="36" y="282" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="800" font-size="236" letter-spacing="-14" fill="#16130F">unslop</text>
+  <path d="M850 296 C 930 276, 1030 272, 1130 286 S 1220 300, 1236 290" fill="none" stroke="#F2471C" stroke-width="9" stroke-linecap="round"/>
   <circle cx="1196" cy="134" r="22" fill="#F2471C"/>
 </svg>

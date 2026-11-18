@@ -1,4 +1,4 @@
-# How to use the Bangers kit
+# How to use unslop
 
 You type what you want in Claude Code. The kit makes Claude work the way a senior web designer would: it asks a few questions, proposes a direction, waits for your yes, then builds and checks its own work. You never run the scripts yourself; Claude does.
 
@@ -9,13 +9,13 @@ You need Claude Code, Node 22 or later, and Google Chrome.
 In your terminal:
 
 ```bash
-npx bangers-kit
+npx unslop-kit
 npx playwright install chromium
 ```
 
 Answer the prompts (the defaults install everything). Install `ffmpeg` too if you want videos (`brew install ffmpeg` on a Mac).
 
-Prefer the Claude Code plugin? Run `/plugin marketplace add buildwithrekt/unslop`, then `/plugin install bangers@bangers-kit`, then `/bangers:setup`. With the plugin, the commands below are written `/bangers:awwwards` and `/bangers:scout` instead of `/bangers-awwwards` and `/bangers-scout`.
+Prefer the Claude Code plugin? Run `/plugin marketplace add buildwithrekt/unslop`, then `/plugin install unslop@unslop`, then `/unslop:setup`. With the plugin, the commands below are written `/unslop:awwwards` and `/unslop:scout` instead of `/unslop-awwwards` and `/unslop-scout`.
 
 Close the session and open a new one. The rules are now loaded in every session.
 
@@ -24,7 +24,7 @@ Close the session and open a new one. The rules are now loaded in every session.
 Make an empty folder, open Claude Code in it, and type:
 
 ```text
-/bangers-awwwards A landing page for a specialty coffee roaster in Lisbon. Warm, editorial, a bit playful. One page, with a shop link.
+/unslop-awwwards A landing page for a specialty coffee roaster in Lisbon. Warm, editorial, a bit playful. One page, with a shop link.
 ```
 
 What happens next:
@@ -111,13 +111,13 @@ Claude shows a price estimate before generating anything and the script refuses 
 The kit ships with a study of recent award-winning sites. Claude cites it when it proposes a direction. Refresh it about once a month:
 
 ```text
-/bangers-scout
+/unslop-scout
 ```
 
 Or aim it at a theme:
 
 ```text
-/bangers-scout e-commerce
+/unslop-scout e-commerce
 ```
 
 It takes a while, because it visits each site in a real browser.
@@ -134,24 +134,24 @@ It takes a while, because it visits each site in a real browser.
 ## 6. Update the kit
 
 ```bash
-npx bangers-kit@latest
+npx unslop-kit@latest
 ```
 
 With the plugin instead:
 
 ```bash
-claude plugin marketplace update bangers-kit
-claude plugin update bangers@bangers-kit
+claude plugin marketplace update unslop
+claude plugin update unslop@unslop
 ```
 
-With the plugin, run `/bangers:setup` again in Claude Code. Your own references file is kept.
+With the plugin, run `/unslop:setup` again in Claude Code. Your own references file is kept.
 
 ## 7. If something goes wrong
 
 | Problem | Fix |
 |---|---|
-| `/bangers-awwwards` is not found | Run `npx bangers-kit` again, then restart Claude Code (with the plugin: `/bangers:awwwards`, check `claude plugin list`) |
-| Claude ignores the rules | You skipped the rules in the installer (or `/bangers:setup` with the plugin), or you did not open a new session after it |
+| `/unslop-awwwards` is not found | Run `npx unslop-kit` again, then restart Claude Code (with the plugin: `/unslop:awwwards`, check `claude plugin list`) |
+| Claude ignores the rules | You skipped the rules in the installer (or `/unslop:setup` with the plugin), or you did not open a new session after it |
 | A render script cannot find a browser | Install Google Chrome, or run `npx playwright install chromium` |
 | Video export fails | Install `ffmpeg` |
 | `scroll-film` refuses to run | That is the spending cap working: raise `FILM_BUDGET` or cut shots |

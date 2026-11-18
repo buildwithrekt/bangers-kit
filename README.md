@@ -2,26 +2,26 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-    <img src="assets/banner-light.svg" alt="Bangers kit: an award-level web design workflow for Claude Code" width="100%">
+    <img src="assets/banner-light.svg" alt="unslop: an award-level web design workflow for Claude Code" width="100%">
   </picture>
 </p>
 
 <div align="center">
 
-<code>npx bangers-kit</code>
+<code>npx unslop-kit</code>
 
-[![npm](https://img.shields.io/npm/v/bangers-kit?style=flat-square&color=F2471C&label=npm)](https://www.npmjs.com/package/bangers-kit)
+[![npm](https://img.shields.io/npm/v/unslop-kit?style=flat-square&color=F2471C&label=npm)](https://www.npmjs.com/package/unslop-kit)
 [![CI](https://img.shields.io/github/actions/workflow/status/buildwithrekt/unslop/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/buildwithrekt/unslop/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-22%2B-16130F?style=flat-square&logo=nodedotjs&logoColor=white)](package.json)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-16130F?style=flat-square)](#claude-code-plugin)
 
-[Install](#install) · [Example](#an-example-session) · [Showcase](#built-with-bangers-kit) · [Commands](#commands) · [Skills](#skills) · [Tutorial](TUTORIAL.md)
+[Install](#install) · [Example](#an-example-session) · [Showcase](#built-with-unslop) · [Commands](#commands) · [Skills](#skills) · [Tutorial](TUTORIAL.md)
 
 </div>
 
 ---
 
-**Bangers kit** makes Claude Code work the way a senior web designer would. It asks a few questions, proposes an art direction, waits for your yes, then builds and audits its own work. You get the method behind award-level sites (Awwwards, FWA, CSS Design Awards), plus the production pipelines around a launch: brand kit, press kit, redesign threads and films.
+**unslop** makes Claude Code work the way a senior web designer would. It asks a few questions, proposes an art direction, waits for your yes, then builds and audits its own work. You get the method behind award-level sites (Awwwards, FWA, CSS Design Awards), plus the production pipelines around a launch: brand kit, press kit, redesign threads and films.
 
 One command starts a site. The always-on rules keep the agent on the method for every session after that.
 
@@ -32,11 +32,11 @@ All routes need [Claude Code](https://claude.com/claude-code) and Node 22 or lat
 ### The installer (recommended)
 
 ```bash
-npx bangers-kit
+npx unslop-kit
 ```
 
 ```text
-┌  Bangers kit v0.2.0
+┌  unslop v0.3.0
 │
 ◆  Which skills?
 │  ◼ motion-system (tokens, smooth scroll, reveals, transitions, WebGL loading)
@@ -55,17 +55,17 @@ npx bangers-kit
 └
 ```
 
-The commands are installed as `/bangers-awwwards` and `/bangers-scout`. To skip the prompts, `npx bangers-kit --yes` installs everything globally, and `npx bangers-kit --help` lists every flag.
+The commands are installed as `/unslop-awwwards` and `/unslop-scout`. To skip the prompts, `npx unslop-kit --yes` installs everything globally, and `npx unslop-kit --help` lists every flag.
 
 ### Claude Code plugin
 
 ```text
 /plugin marketplace add buildwithrekt/unslop
-/plugin install bangers@bangers-kit
-/bangers:setup
+/plugin install unslop@unslop
+/unslop:setup
 ```
 
-`/bangers:setup` copies the rules and the design watch into `~/.claude/bangers` and adds one import line to your user-level `CLAUDE.md`. Start a new session afterwards. With the plugin, commands are namespaced: `/bangers:awwwards`, `/bangers:scout`.
+`/unslop:setup` copies the rules and the design watch into `~/.claude/unslop` and adds one import line to your user-level `CLAUDE.md`. Start a new session afterwards. With the plugin, commands are namespaced: `/unslop:awwwards`, `/unslop:scout`.
 
 ### Skills only
 
@@ -86,7 +86,7 @@ npx playwright install chromium
 One brief, typed into Claude Code:
 
 ```text
-/bangers-awwwards A landing page for a specialty coffee roaster in Lisbon.
+/unslop-awwwards A landing page for a specialty coffee roaster in Lisbon.
 Warm, editorial, a bit playful. One page, with a shop link.
 ```
 
@@ -138,7 +138,7 @@ This is where most of the quality comes from. Push back: "the palette is too saf
 
 The [tutorial](TUTORIAL.md) walks through a full session and each skill.
 
-## Built with Bangers kit
+## Built with unslop
 
 Five live sites, each with its own art direction. Desktop on the left, the same page on a phone on the right. Click any capture to open the site.
 
@@ -184,10 +184,10 @@ Five live sites, each with its own art direction. Desktop on the left, the same 
 
 | Command | What it does |
 |---|---|
-| `/bangers-awwwards <brief>` | Brief, art direction, structure, build, audit and improvements, with validation stops |
-| `/bangers-scout [theme]` | Re-runs the design watch on recent Awwwards Sites of the Day and Dribbble, and appends to your design references |
+| `/unslop-awwwards <brief>` | Brief, art direction, structure, build, audit and improvements, with validation stops |
+| `/unslop-scout [theme]` | Re-runs the design watch on recent Awwwards Sites of the Day and Dribbble, and appends to your design references |
 
-With the plugin, write them `/bangers:awwwards` and `/bangers:scout`. The plugin adds `/bangers:setup`, which installs or refreshes the rules and the design watch.
+With the plugin, write them `/unslop:awwwards` and `/unslop:scout`. The plugin adds `/unslop:setup`, which installs or refreshes the rules and the design watch.
 
 ## Skills
 
@@ -213,10 +213,12 @@ Claude loads them when the work calls for them. You can also name one: "use the 
 
 ## Update
 
-- Installer: run `npx bangers-kit@latest` again.
-- Plugin: `/plugin marketplace update bangers-kit`, then `/plugin update bangers@bangers-kit`, then `/bangers:setup`.
+- Installer: run `npx unslop-kit@latest` again.
+- Plugin: `/plugin marketplace update unslop`, then `/plugin update unslop@unslop`, then `/unslop:setup`.
 
 Your design watch is never overwritten. The rules are refreshed, and your previous copy is kept as `rules.md.bak`.
+
+**Coming from `bangers-kit`?** The kit was renamed. Run `npx unslop-kit`: it moves your design watch from `~/.claude/bangers` to `~/.claude/unslop` and updates the import line in `CLAUDE.md`. The old folder is left in place; delete it yourself once you have checked the new one. Old `/bangers-*` commands keep working until you remove them from `~/.claude/commands`.
 
 ## Requirements
 

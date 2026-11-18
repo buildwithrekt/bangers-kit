@@ -1,4 +1,4 @@
-// Dependency-free install logic, shared by the npx installer and the plugin's /bangers:setup.
+// Dependency-free install logic, shared by the npx installer and the plugin's /unslop:setup.
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -17,30 +17,38 @@ export const SKILLS = [
 
 export const COMMANDS = ["awwwards", "scout"];
 
-const PLACEHOLDER = "~/.claude/bangers";
+const PLACEHOLDER = "~/.claude/unslop";
 
-// Where everything goes for a given scope.
+// Where everything goes for a given scope. `legacy` is where versions before 0.3.0 (named "bangers") installed.
 export function targets(scope, cwd = process.cwd()) {
   if (scope === "project") {
     const config = path.join(cwd, ".claude");
     return {
       config,
-      bangers: path.join(config, "bangers"),
-      shown: ".claude/bangers",
+      dir: path.join(config, "unslop"),
+      shown: ".claude/unslop",
       memory: path.join(cwd, "CLAUDE.md"),
+      legacy: { dir: path.join(config, "bangers"), shown: ".claude/bangers" },
     };
   }
   const home = os.homedir();
   const config = process.env.CLAUDE_CONFIG_DIR || path.join(home, ".claude");
-  const bangers = path.join(config, "bangers");
-  const shown = config === path.join(home, ".claude") ? PLACEHOLDER : bangers;
-  return { config, bangers, shown, memory: path.join(config, "CLAUDE.md") };
+  const isDefault = config === path.join(home, ".claude");
+  const dir = path.join(config, "unslop");
+  const legacyDir = path.join(config, "bangers");
+  return {
+    config,
+    dir,
+    shown: isDefault ? PLACEHOLDER : dir,
+    memory: path.join(config, "CLAUDE.md"),
+    legacy: { dir: legacyDir, shown: isDefault ? "~/.claude/bangers" : legacyDir },
+  };
 }
 
 function render(text, t, { flattenCommands = false } = {}) {
   let out = text.split(PLACEHOLDER).join(t.shown);
-  // Outside the plugin, commands are not namespaced: /bangers:scout becomes /bangers-scout.
-  if (flattenCommands) out = out.replace(/\/bangers:([a-z-]+)/g, "/bangers-$1");
+  // Outside the plugin, commands are not namespaced: /unslop:scout becomes /unslop-scout.
+  if (flattenCommands) out = out.replace(/\/unslop:([a-z-]+)/g, "/unslop-$1");
   return out;
 }
 
@@ -56,7 +64,7 @@ function writeIfChanged(file, content, log) {
 
 // Rules are refreshed on every run (previous copy kept as .bak); the design watch is never overwritten.
 export function installRules(t, log, opts = {}) {
-  const rules = path.join(t.bangers, "rules.md");
+  const rules = path.join(t.dir, "rules.md");
   const next = render(read(path.join(KIT_ROOT, "rules/rules.md")), t, opts);
   if (fs.existsSync(rules) && read(rules) !== next) {
     fs.copyFileSync(rules, `${rules}.bak`);
@@ -64,23 +72,33 @@ export function installRules(t, log, opts = {}) {
   }
   writeIfChanged(rules, next, log);
 
-  const watch = path.join(t.bangers, "design-references.md");
+  const watch = path.join(t.dir, "design-references.md");
+  const legacyWatch = path.join(t.legacy.dir, "design-references.md");
   if (fs.existsSync(watch)) {
     log("kept", `${watch} (yours)`);
+  } else if (fs.existsSync(legacyWatch)) {
+    fs.copyFileSync(legacyWatch, watch);
+    log("migrated", `${legacyWatch} -> ${watch} (the old folder is left in place)`);
   } else {
-    fs.mkdirSync(t.bangers, { recursive: true });
+    fs.mkdirSync(t.dir, { recursive: true });
     fs.copyFileSync(path.join(KIT_ROOT, "rules/design-references.md"), watch);
     log("created", watch);
   }
 
   const line = `@${t.shown}/rules.md`;
-  const current = fs.existsSync(t.memory) ? read(t.memory) : "";
+  let current = fs.existsSync(t.memory) ? read(t.memory) : "";
+  const legacyLine = `@${t.legacy.shown}/rules.md`;
+  if (current.split(/\r?\n/).includes(legacyLine)) {
+    current = current.split(legacyLine).join(line).split("# Bangers kit\n").join("# unslop\n");
+    fs.writeFileSync(t.memory, current);
+    log("migrated", `${t.memory} now imports ${line}`);
+  }
   if (current.split(/\r?\n/).includes(line)) {
     log("current", `${t.memory} already imports the rules`);
   } else {
     const sep = current === "" ? "" : current.endsWith("\n") ? "\n" : "\n\n";
     fs.mkdirSync(path.dirname(t.memory), { recursive: true });
-    fs.writeFileSync(t.memory, `${current}${sep}# Bangers kit\n${line}\n`);
+    fs.writeFileSync(t.memory, `${current}${sep}# unslop\n${line}\n`);
     log("added", `import line to ${t.memory}`);
   }
 }
@@ -108,7 +126,7 @@ export function installSkills(names, t, log) {
 export function installCommands(t, log) {
   for (const name of COMMANDS) {
     const src = read(path.join(KIT_ROOT, "commands", `${name}.md`));
-    writeIfChanged(path.join(t.config, "commands", `bangers-${name}.md`), render(src, t, { flattenCommands: true }), log);
+    writeIfChanged(path.join(t.config, "commands", `unslop-${name}.md`), render(src, t, { flattenCommands: true }), log);
   }
 }
 
