@@ -15,7 +15,7 @@ npx playwright install chromium
 
 Answer the prompts (the defaults install everything). Install `ffmpeg` too if you want videos (`brew install ffmpeg` on a Mac).
 
-Prefer the Claude Code plugin? Run `/plugin marketplace add buildwithrekt/bangers-kit`, then `/plugin install bangers@bangers-kit`, then `/bangers:setup`. With the plugin, the commands below are written `/bangers:awwwards` and `/bangers:scout` instead of `/bangers-awwwards` and `/bangers-scout`.
+Prefer the Claude Code plugin? Run `/plugin marketplace add buildwithrekt/unslop`, then `/plugin install bangers@bangers-kit`, then `/bangers:setup`. With the plugin, the commands below are written `/bangers:awwwards` and `/bangers:scout` instead of `/bangers-awwwards` and `/bangers-scout`.
 
 Close the session and open a new one. The rules are now loaded in every session.
 

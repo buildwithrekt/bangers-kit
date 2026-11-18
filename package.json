@@ -24,12 +24,12 @@
     "node": ">=22"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "homepage": "https://github.com/buildwithrekt/bangers-kit#readme",
+  "homepage": "https://github.com/buildwithrekt/unslop#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/buildwithrekt/bangers-kit.git"
+    "url": "git+https://github.com/buildwithrekt/unslop.git"
   },
-  "bugs": "https://github.com/buildwithrekt/bangers-kit/issues",
+  "bugs": "https://github.com/buildwithrekt/unslop/issues",
   "keywords": [
     "claude-code",
     "agent-skills",

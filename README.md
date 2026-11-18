@@ -11,7 +11,7 @@
 <code>npx bangers-kit</code>
 
 [![npm](https://img.shields.io/npm/v/bangers-kit?style=flat-square&color=F2471C&label=npm)](https://www.npmjs.com/package/bangers-kit)
-[![CI](https://img.shields.io/github/actions/workflow/status/buildwithrekt/bangers-kit/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/buildwithrekt/bangers-kit/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/buildwithrekt/unslop/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/buildwithrekt/unslop/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-22%2B-16130F?style=flat-square&logo=nodedotjs&logoColor=white)](package.json)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-16130F?style=flat-square)](#claude-code-plugin)
 
@@ -60,7 +60,7 @@ The commands are installed as `/bangers-awwwards` and `/bangers-scout`. To skip 
 ### Claude Code plugin
 
 ```text
-/plugin marketplace add buildwithrekt/bangers-kit
+/plugin marketplace add buildwithrekt/unslop
 /plugin install bangers@bangers-kit
 /bangers:setup
 ```
@@ -70,7 +70,7 @@ The commands are installed as `/bangers-awwwards` and `/bangers-scout`. To skip 
 ### Skills only
 
 ```bash
-npx skills add buildwithrekt/bangers-kit
+npx skills add buildwithrekt/unslop
 ```
 
 Copies the six skill folders and nothing else: no rules, no design watch, no commands. Use this route for other agents, or if you only want the skills.
