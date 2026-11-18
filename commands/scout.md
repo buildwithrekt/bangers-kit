@@ -5,7 +5,7 @@ argument-hint: [optional theme: typography, WebGL, e-commerce…]
 
 Target theme (optional): $ARGUMENTS
 
-Update `~/.claude/unslop/design-references.md` with a new watch.
+Update `~/.claude/unsl0p/design-references.md` with a new watch.
 
 1. **Read what exists**: read the file, note the date of the last watch and the sites already analysed so you don't redo them.
 2. **Collect**:

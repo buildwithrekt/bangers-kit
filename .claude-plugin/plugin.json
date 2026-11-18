@@ -1,5 +1,5 @@
 {
-  "name": "unslop",
+  "name": "unsl0p",
   "version": "0.3.0",
   "description": "Award-level web design for Claude Code: art direction before code, a motion system, a living design watch, brand kit, press kit, redesign threads and films.",
   "author": {
@@ -15,6 +15,6 @@
     "press-kit"
   ],
   "license": "LicenseRef-Proprietary",
-  "homepage": "https://github.com/buildwithrekt/unslop",
-  "repository": "https://github.com/buildwithrekt/unslop"
+  "homepage": "https://github.com/buildwithrekt/unsl0p",
+  "repository": "https://github.com/buildwithrekt/unsl0p"
 }

@@ -1,4 +1,4 @@
-# How to use unslop
+# How to use unsl0p
 
 You type what you want in Claude Code. The kit makes Claude work the way a senior web designer would: it asks a few questions, proposes a direction, waits for your yes, then builds and checks its own work. You never run the scripts yourself; Claude does.
 
@@ -9,13 +9,13 @@ You need Claude Code, Node 22 or later, and Google Chrome.
 In your terminal:
 
 ```bash
-npx unslop-kit
+npx unsl0p
 npx playwright install chromium
 ```
 
 Answer the prompts (the defaults install everything). Install `ffmpeg` too if you want videos (`brew install ffmpeg` on a Mac).
 
-Prefer the Claude Code plugin? Run `/plugin marketplace add buildwithrekt/unslop`, then `/plugin install unslop@unslop`, then `/unslop:setup`. With the plugin, the commands below are written `/unslop:awwwards` and `/unslop:scout` instead of `/unslop-awwwards` and `/unslop-scout`.
+Prefer the Claude Code plugin? Run `/plugin marketplace add buildwithrekt/unsl0p`, then `/plugin install unsl0p@unsl0p`, then `/unsl0p:setup`. With the plugin, the commands below are written `/unsl0p:awwwards` and `/unsl0p:scout` instead of `/unsl0p-awwwards` and `/unsl0p-scout`.
 
 Close the session and open a new one. The rules are now loaded in every session.
 
@@ -24,7 +24,7 @@ Close the session and open a new one. The rules are now loaded in every session.
 Make an empty folder, open Claude Code in it, and type:
 
 ```text
-/unslop-awwwards A landing page for a specialty coffee roaster in Lisbon. Warm, editorial, a bit playful. One page, with a shop link.
+/unsl0p-awwwards A landing page for a specialty coffee roaster in Lisbon. Warm, editorial, a bit playful. One page, with a shop link.
 ```
 
 What happens next:
@@ -111,13 +111,13 @@ Claude shows a price estimate before generating anything and the script refuses 
 The kit ships with a study of recent award-winning sites. Claude cites it when it proposes a direction. Refresh it about once a month:
 
 ```text
-/unslop-scout
+/unsl0p-scout
 ```
 
 Or aim it at a theme:
 
 ```text
-/unslop-scout e-commerce
+/unsl0p-scout e-commerce
 ```
 
 It takes a while, because it visits each site in a real browser.
@@ -134,24 +134,24 @@ It takes a while, because it visits each site in a real browser.
 ## 6. Update the kit
 
 ```bash
-npx unslop-kit@latest
+npx unsl0p@latest
 ```
 
 With the plugin instead:
 
 ```bash
-claude plugin marketplace update unslop
-claude plugin update unslop@unslop
+claude plugin marketplace update unsl0p
+claude plugin update unsl0p@unsl0p
 ```
 
-With the plugin, run `/unslop:setup` again in Claude Code. Your own references file is kept.
+With the plugin, run `/unsl0p:setup` again in Claude Code. Your own references file is kept.
 
 ## 7. If something goes wrong
 
 | Problem | Fix |
 |---|---|
-| `/unslop-awwwards` is not found | Run `npx unslop-kit` again, then restart Claude Code (with the plugin: `/unslop:awwwards`, check `claude plugin list`) |
-| Claude ignores the rules | You skipped the rules in the installer (or `/unslop:setup` with the plugin), or you did not open a new session after it |
+| `/unsl0p-awwwards` is not found | Run `npx unsl0p` again, then restart Claude Code (with the plugin: `/unsl0p:awwwards`, check `claude plugin list`) |
+| Claude ignores the rules | You skipped the rules in the installer (or `/unsl0p:setup` with the plugin), or you did not open a new session after it |
 | A render script cannot find a browser | Install Google Chrome, or run `npx playwright install chromium` |
 | Video export fails | Install `ffmpeg` |
 | `scroll-film` refuses to run | That is the spending cap working: raise `FILM_BUDGET` or cut shots |

@@ -1,11 +1,11 @@
 {
-  "name": "unslop",
+  "name": "unsl0p",
   "owner": {
     "name": "buildwithrekt"
   },
   "plugins": [
     {
-      "name": "unslop",
+      "name": "unsl0p",
       "source": "./",
       "description": "Award-level web design for Claude Code: art direction before code, a motion system, a living design watch, brand kit, press kit, redesign threads and films.",
       "version": "0.3.0"

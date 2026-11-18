@@ -1,4 +1,4 @@
-// Dependency-free install logic, shared by the npx installer and the plugin's /unslop:setup.
+// Dependency-free install logic, shared by the npx installer and the plugin's /unsl0p:setup.
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -17,38 +17,43 @@ export const SKILLS = [
 
 export const COMMANDS = ["awwwards", "scout"];
 
-const PLACEHOLDER = "~/.claude/unslop";
+const PLACEHOLDER = "~/.claude/unsl0p";
 
-// Where everything goes for a given scope. `legacy` is where versions before 0.3.0 (named "bangers") installed.
+// Where everything goes for a given scope. `legacy` lists the folders older versions installed into
+// ("unslop" in 0.3.0 before the rename, "bangers" before that), newest first.
+const LEGACY_NAMES = ["unslop", "bangers"];
+
 export function targets(scope, cwd = process.cwd()) {
   if (scope === "project") {
     const config = path.join(cwd, ".claude");
     return {
       config,
-      dir: path.join(config, "unslop"),
-      shown: ".claude/unslop",
+      dir: path.join(config, "unsl0p"),
+      shown: ".claude/unsl0p",
       memory: path.join(cwd, "CLAUDE.md"),
-      legacy: { dir: path.join(config, "bangers"), shown: ".claude/bangers" },
+      legacy: LEGACY_NAMES.map((n) => ({ dir: path.join(config, n), shown: `.claude/${n}` })),
     };
   }
   const home = os.homedir();
   const config = process.env.CLAUDE_CONFIG_DIR || path.join(home, ".claude");
   const isDefault = config === path.join(home, ".claude");
-  const dir = path.join(config, "unslop");
-  const legacyDir = path.join(config, "bangers");
+  const dir = path.join(config, "unsl0p");
   return {
     config,
     dir,
     shown: isDefault ? PLACEHOLDER : dir,
     memory: path.join(config, "CLAUDE.md"),
-    legacy: { dir: legacyDir, shown: isDefault ? "~/.claude/bangers" : legacyDir },
+    legacy: LEGACY_NAMES.map((n) => ({
+      dir: path.join(config, n),
+      shown: isDefault ? `~/.claude/${n}` : path.join(config, n),
+    })),
   };
 }
 
 function render(text, t, { flattenCommands = false } = {}) {
   let out = text.split(PLACEHOLDER).join(t.shown);
-  // Outside the plugin, commands are not namespaced: /unslop:scout becomes /unslop-scout.
-  if (flattenCommands) out = out.replace(/\/unslop:([a-z-]+)/g, "/unslop-$1");
+  // Outside the plugin, commands are not namespaced: /unsl0p:scout becomes /unsl0p-scout.
+  if (flattenCommands) out = out.replace(/\/unsl0p:([a-z-]+)/g, "/unsl0p-$1");
   return out;
 }
 
@@ -73,10 +78,12 @@ export function installRules(t, log, opts = {}) {
   writeIfChanged(rules, next, log);
 
   const watch = path.join(t.dir, "design-references.md");
-  const legacyWatch = path.join(t.legacy.dir, "design-references.md");
+  const legacyWatch = t.legacy
+    .map((l) => path.join(l.dir, "design-references.md"))
+    .find((f) => fs.existsSync(f));
   if (fs.existsSync(watch)) {
     log("kept", `${watch} (yours)`);
-  } else if (fs.existsSync(legacyWatch)) {
+  } else if (legacyWatch) {
     fs.copyFileSync(legacyWatch, watch);
     log("migrated", `${legacyWatch} -> ${watch} (the old folder is left in place)`);
   } else {
@@ -87,9 +94,14 @@ export function installRules(t, log, opts = {}) {
 
   const line = `@${t.shown}/rules.md`;
   let current = fs.existsSync(t.memory) ? read(t.memory) : "";
-  const legacyLine = `@${t.legacy.shown}/rules.md`;
-  if (current.split(/\r?\n/).includes(legacyLine)) {
-    current = current.split(legacyLine).join(line).split("# Bangers kit\n").join("# unslop\n");
+  for (const l of t.legacy) {
+    const legacyLine = `@${l.shown}/rules.md`;
+    if (!current.split(/\r?\n/).includes(legacyLine)) continue;
+    current = current.split(legacyLine).join(line);
+    current = current.split("# Bangers kit\n").join("# unsl0p\n").split("# unslop\n").join("# unsl0p\n");
+    // Two old installs can leave the same import twice: keep the first.
+    const lines = current.split("\n");
+    current = lines.filter((x, i) => x !== line || lines.indexOf(line) === i).join("\n");
     fs.writeFileSync(t.memory, current);
     log("migrated", `${t.memory} now imports ${line}`);
   }
@@ -98,7 +110,7 @@ export function installRules(t, log, opts = {}) {
   } else {
     const sep = current === "" ? "" : current.endsWith("\n") ? "\n" : "\n\n";
     fs.mkdirSync(path.dirname(t.memory), { recursive: true });
-    fs.writeFileSync(t.memory, `${current}${sep}# unslop\n${line}\n`);
+    fs.writeFileSync(t.memory, `${current}${sep}# unsl0p\n${line}\n`);
     log("added", `import line to ${t.memory}`);
   }
 }
@@ -126,7 +138,7 @@ export function installSkills(names, t, log) {
 export function installCommands(t, log) {
   for (const name of COMMANDS) {
     const src = read(path.join(KIT_ROOT, "commands", `${name}.md`));
-    writeIfChanged(path.join(t.config, "commands", `unslop-${name}.md`), render(src, t, { flattenCommands: true }), log);
+    writeIfChanged(path.join(t.config, "commands", `unsl0p-${name}.md`), render(src, t, { flattenCommands: true }), log);
   }
 }
 

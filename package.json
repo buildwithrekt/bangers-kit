@@ -1,10 +1,10 @@
 {
-  "name": "unslop-kit",
+  "name": "unsl0p",
   "version": "0.3.0",
-  "description": "Installer for unslop: an award-level web design workflow for Claude Code. Art direction before code, a motion system, a living design watch.",
+  "description": "Installer for unsl0p: an award-level web design workflow for Claude Code. Art direction before code, a motion system, a living design watch.",
   "type": "module",
   "bin": {
-    "unslop-kit": "cli/index.mjs"
+    "unsl0p": "cli/index.mjs"
   },
   "files": [
     "cli/",
@@ -24,12 +24,12 @@
     "node": ">=22"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "homepage": "https://github.com/buildwithrekt/unslop#readme",
+  "homepage": "https://github.com/buildwithrekt/unsl0p#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/buildwithrekt/unslop.git"
+    "url": "git+https://github.com/buildwithrekt/unsl0p.git"
   },
-  "bugs": "https://github.com/buildwithrekt/unslop/issues",
+  "bugs": "https://github.com/buildwithrekt/unsl0p/issues",
   "keywords": [
     "claude-code",
     "claude-code-plugin",

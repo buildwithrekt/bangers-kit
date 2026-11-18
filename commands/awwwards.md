@@ -5,9 +5,9 @@ argument-hint: [site brief]
 
 Site brief: $ARGUMENTS
 
-Follow this workflow in order, respecting `~/.claude/unslop/rules.md` (read it now if it is not already in context). Stop for validation at the steps marked ⏸.
+Follow this workflow in order, respecting `~/.claude/unsl0p/rules.md` (read it now if it is not already in context). Stop for validation at the steps marked ⏸.
 
-1. **Watch**: read `~/.claude/unslop/design-references.md`. If the watch date is more than 30 days old, offer `/unslop:scout` before continuing.
+1. **Watch**: read `~/.claude/unsl0p/design-references.md`. If the watch date is more than 30 days old, offer `/unsl0p:scout` before continuing.
 2. **Brief**: restate the brief in 3-5 lines (goal, audience, content, constraints). Ask at most 3 questions (audience, tone/universe, admired references). With no answer, decide yourself and state your assumptions. ⏸
 3. **Art direction**: propose a palette (OKLCH tokens), type pairings, grid, motion principles (easings, durations, roles), 2-3 "wow" moments. For each choice, cite the patterns from `design-references.md` that inspire it, reinterpreted and never copied. Flag the anti-patterns avoided. ⏸
 4. **Structure**: page tree, sections of each page with their narrative role, key components, interactions and page transitions, mobile behaviour, `prefers-reduced-motion` version. ⏸
