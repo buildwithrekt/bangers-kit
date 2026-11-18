@@ -6,37 +6,51 @@ New here? Read [TUTORIAL.md](TUTORIAL.md) first.
 
 ## Install
 
-You need Claude Code and read access to this repository (your git credentials must work without a prompt: `gh auth login` then `gh auth setup-git`).
+Three routes, pick one. All of them need [Claude Code](https://claude.com/claude-code) and Node 22 or later.
+
+### The installer (recommended)
 
 ```bash
-claude plugin marketplace add buildwithrekt/bangers-kit
-claude plugin install bangers@bangers-kit
+npx bangers-kit
 ```
 
-Then, inside Claude Code, run once:
+It asks which skills you want, whether to install them everywhere (`~/.claude`) or in the current project only (`./.claude`), and whether to add the always-on rules and the design watch. The commands are installed as `/bangers-awwwards` and `/bangers-scout`.
+
+Without prompts: `npx bangers-kit --yes` installs everything globally. `npx bangers-kit --help` lists the flags.
+
+### Claude Code plugin
 
 ```text
-/bangers:setup
+/plugin marketplace add buildwithrekt/bangers-kit
+/plugin install bangers@bangers-kit
 ```
 
-This copies the always-on rules and the design watch into the `bangers` folder of your Claude config directory and adds a single import line to your user-level `CLAUDE.md`. Start a new session afterwards.
+Then run `/bangers:setup` once. This copies the always-on rules and the design watch into the `bangers` folder of your Claude config directory and adds a single import line to your user-level `CLAUDE.md`. Start a new session afterwards. With the plugin, the commands are namespaced: `/bangers:awwwards`, `/bangers:scout`.
+
+### Skills only
+
+```bash
+npx skills add buildwithrekt/bangers-kit
+```
+
+This copies the six skill folders and nothing else: no rules, no design watch, no commands. Use it with agents other than Claude Code, or if you only want the skills.
 
 ## Update
 
-```bash
-claude plugin marketplace update bangers-kit
-claude plugin update bangers@bangers-kit
-```
+- Installer: run `npx bangers-kit@latest` again.
+- Plugin: `/plugin marketplace update bangers-kit`, then `/plugin update bangers@bangers-kit`, then `/bangers:setup`.
 
-Run `/bangers:setup` again after an update. Your design watch is never overwritten; the rules are refreshed and your previous copy is kept as `rules.md.bak`.
+Your design watch is never overwritten. The rules are refreshed and your previous copy is kept as `rules.md.bak`.
 
 ## Commands
+
+Shown with the plugin names. With the installer, use `/bangers-awwwards` and `/bangers-scout`.
 
 | Command | What it does |
 |---|---|
 | `/bangers:awwwards <brief>` | Brief, art direction, structure, build, audit, improvements, with validation stops |
 | `/bangers:scout [theme]` | Re-runs the design watch on recent Awwwards Sites of the Day and Dribbble, and appends to your design references |
-| `/bangers:setup` | Installs or refreshes the rules and the design watch |
+| `/bangers:setup` | Plugin only: installs or refreshes the rules and the design watch |
 
 ## Skills
 

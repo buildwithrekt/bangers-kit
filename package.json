@@ -1,0 +1,42 @@
+{
+  "name": "bangers-kit",
+  "version": "0.2.0",
+  "description": "Installer for the Bangers kit: an award-level web design workflow for Claude Code.",
+  "type": "module",
+  "bin": {
+    "bangers-kit": "cli/index.mjs"
+  },
+  "files": [
+    "cli/",
+    "skills/",
+    "commands/",
+    "rules/",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.9.0",
+    "picocolors": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/buildwithrekt/bangers-kit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buildwithrekt/bangers-kit.git"
+  },
+  "bugs": "https://github.com/buildwithrekt/bangers-kit/issues",
+  "keywords": [
+    "claude-code",
+    "agent-skills",
+    "web-design",
+    "awwwards",
+    "motion",
+    "gsap",
+    "webgl"
+  ]
+}

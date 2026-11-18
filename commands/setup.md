@@ -5,7 +5,7 @@ description: Install the kit's always-on rules and design watch (run once, and a
 Run this and show its output to the user:
 
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/scripts/setup.sh"
+node "${CLAUDE_PLUGIN_ROOT}/cli/setup.mjs"
 ```
 
 It copies the rules and the design watch into the `bangers` folder of the Claude config directory and adds a single import line to the user-level `CLAUDE.md`. It never overwrites the user's design watch and never touches the rest of their `CLAUDE.md`.
