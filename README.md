@@ -15,7 +15,7 @@
 [![Node](https://img.shields.io/badge/node-22%2B-16130F?style=flat-square&logo=nodedotjs&logoColor=white)](package.json)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-16130F?style=flat-square)](#claude-code-plugin)
 
-[Install](#install) · [Example](#an-example-session) · [Commands](#commands) · [Skills](#skills) · [Tutorial](TUTORIAL.md)
+[Install](#install) · [Example](#an-example-session) · [Showcase](#built-with-bangers-kit) · [Commands](#commands) · [Skills](#skills) · [Tutorial](TUTORIAL.md)
 
 </div>
 
@@ -137,6 +137,48 @@ Approve, or tell me what to change.
 This is where most of the quality comes from. Push back: "the palette is too safe", "bigger type", "I want one moment that makes people stop scrolling". Once you approve, Claude proposes the structure, then builds. It reports real build, Lighthouse, accessibility and SEO results before it calls the work done, failures included.
 
 The [tutorial](TUTORIAL.md) walks through a full session and each skill.
+
+## Built with Bangers kit
+
+Five live sites, each with its own art direction. Desktop on the left, the same page on a phone on the right. Click any capture to open the site.
+
+<table>
+  <tr>
+    <td width="76%"><a href="https://maisonpixel.si"><img src="assets/showcase/maisonpixel-desktop.webp" alt="Maison Pixel home page on desktop: giant outlined MAISON PIXEL lettering over a dark background with a liquid orange shape" width="100%"></a></td>
+    <td width="24%"><a href="https://maisonpixel.si"><img src="assets/showcase/maisonpixel-mobile.webp" alt="Maison Pixel home page on a phone" width="100%"></a></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b><a href="https://maisonpixel.si">Maison Pixel</a></b>: a web studio selling animated sites. Outlined display type at full width, a liquid shape in signal orange, an italic serif against a heavy grotesk, and the studio's local time in the header.</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.undrlst.com"><img src="assets/showcase/underlist-desktop.webp" alt="underlist home page on desktop: EVERY MODEL, UNDER LIST in a tall condensed face over a mint dithered pattern" width="100%"></a></td>
+    <td><a href="https://www.undrlst.com"><img src="assets/showcase/underlist-mobile.webp" alt="underlist home page on a phone" width="100%"></a></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b><a href="https://www.undrlst.com">underlist</a></b>: one API key for every AI model, bought below list price. A dithered mint field behind a tall condensed headline, a live status bar and mono labels: the "instrument" look.</td>
+  </tr>
+  <tr>
+    <td><a href="https://gitcap.fun"><img src="assets/showcase/gitcap-desktop.webp" alt="gitcap home page on desktop: PUT A PRICE ON OPEN SOURCE in heavy black and violet type on yellow, with a 3D bar chart of markets" width="100%"></a></td>
+    <td><a href="https://gitcap.fun"><img src="assets/showcase/gitcap-mobile.webp" alt="gitcap home page on a phone" width="100%"></a></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b><a href="https://gitcap.fun">gitcap</a></b>: GitHub repositories traded as markets on Solana. Signal yellow and violet, a numbered nav, a ticker strip and a 3D market feed built from live data.</td>
+  </tr>
+  <tr>
+    <td><a href="https://retikl.fun"><img src="assets/showcase/retikl-desktop.webp" alt="Retikl home page on desktop: Describe an idea. Get a site and a coin. next to a dark viewfinder with contour lines and a crosshair" width="100%"></a></td>
+    <td><a href="https://retikl.fun"><img src="assets/showcase/retikl-mobile.webp" alt="Retikl home page on a phone" width="100%"></a></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b><a href="https://retikl.fun">Retikl</a></b>: one sentence in, a site and a coin out. A strict paper grid, a viewfinder that hunts across a contour map, and the prompt field as the hero.</td>
+  </tr>
+  <tr>
+    <td><a href="https://riprr.io"><img src="assets/showcase/riprr-desktop.webp" alt="Riprr home page on desktop: Buy KNTQ every week. Automatically. with a live recurring order card" width="100%"></a></td>
+    <td><a href="https://riprr.io"><img src="assets/showcase/riprr-mobile.webp" alt="Riprr home page on a phone" width="100%"></a></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b><a href="https://riprr.io">Riprr</a></b>: scheduled buys of any token on Elysium. A headline that rotates token and cadence, an italic accent word, and a working order card with live prices.</td>
+  </tr>
+</table>
 
 ## Commands
 
